@@ -225,11 +225,27 @@ button {
 
 .hero-video {
   position: absolute;
-  inset: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   width: 100%;
   height: 100%;
   object-fit: cover;
+  /* We keep cover but restrict size on large screens */
+  max-width: 1400px;
+  /* limits how far the video spans out */
   z-index: 0;
+  opacity: 0.8;
+}
+
+@media (min-width: 900px) {
+  .hero-video {
+    top: 0;
+    left: 0;
+    transform: none;
+    max-width: none;
+    opacity: 1;
+  }
 }
 
 .hero-overlay {
@@ -519,7 +535,15 @@ button {
   inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
+  background-color: var(--ivory);
+}
+
+@media (min-width: 900px) {
+  .concept-img-actual {
+    object-fit: cover;
+    background-color: transparent;
+  }
 }
 
 .concept-img-overlay {
@@ -551,6 +575,63 @@ button {
   pointer-events: none;
 }
 
+/* ---------- SALON ---------- */
+.salon {
+  background: var(--white);
+}
+
+.salon-body {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+@media (min-width: 900px) {
+  .salon-body {
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(48px, 8vw, 120px);
+  }
+}
+
+.salon-video-wrapper {
+  width: 100%;
+  border-radius: 2px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 10px 40px rgba(46, 31, 19, 0.05);
+  order: -1;
+}
+
+@media (min-width: 900px) {
+  .salon-video-wrapper {
+    order: 0;
+  }
+}
+
+.salon-video {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: contain;
+  background-color: var(--white);
+  display: block;
+}
+
+@media (min-width: 900px) {
+  .salon-video {
+    object-fit: cover;
+    background-color: transparent;
+  }
+}
+
+.salon-text p {
+  font-size: 0.88rem;
+  color: var(--brown);
+  line-height: 2.2;
+  letter-spacing: 0.08em;
+  margin-bottom: 24px;
+}
+
 /* ---------- THERAPIST ---------- */
 .therapist {
   background: var(--cream);
@@ -574,8 +655,8 @@ button {
 }
 
 .therapist-img-box {
-  width: 220px;
-  height: 280px;
+  width: 200px;
+  height: 260px;
   border-radius: 2px;
   display: flex;
   align-items: center;
@@ -587,7 +668,20 @@ button {
 .therapist-img-actual {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
+  background-color: var(--cream);
+}
+
+@media (min-width: 900px) {
+  .therapist-img-box {
+    width: 220px;
+    height: 280px;
+  }
+
+  .therapist-img-actual {
+    object-fit: cover;
+    background-color: transparent;
+  }
 }
 
 .therapist-img-box::after {
