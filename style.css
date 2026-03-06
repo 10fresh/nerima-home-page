@@ -603,9 +603,15 @@ button {
 
 .salon-video {
   width: 100%;
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 4 / 3;
   object-fit: cover;
   display: block;
+}
+
+@media (min-width: 900px) {
+  .salon-video {
+    aspect-ratio: 16 / 9;
+  }
 }
 
 .salon-text p {
