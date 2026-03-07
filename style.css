@@ -605,6 +605,13 @@ button {
   display: block;
 }
 
+.salon-video-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(46, 31, 19, 0.4);
+  pointer-events: none;
+}
+
 @media (min-width: 900px) {
   .salon-video {
     aspect-ratio: 1 / 1;
@@ -671,6 +678,7 @@ button {
   inset: 0;
   border: 1px solid rgba(184, 152, 106, 0.2);
   border-radius: 2px;
+  z-index: 2;
 }
 
 .therapist-name-plate {
