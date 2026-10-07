@@ -3,374 +3,594 @@
 
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>10FRESH練馬店 — ヘッドスパ専門店</title>
-  <meta name="description" content="練馬にあるヘッドスパ専門店「10FRESH練馬店」。完全個室で、極上のヘッドスパ体験をご提供します。硬くなった頭皮をほぐし、心まで溶けるような時間を。" />
+  <meta name="description" content="練馬にあるヘッドスパ専門店「10FRESH練馬店」。一席だけのプライベート空間で、極上の寝落ち体験を。硬くなった頭皮をほぐし、心まで溶けるような時間をお届けします。" />
+  <meta name="theme-color" content="#121816" />
+  <link rel="canonical" href="https://10fresh.github.io/nerima-home-page/" />
+
+  <!-- SNSでシェアされたときの表示 -->
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="ja_JP" />
+  <meta property="og:site_name" content="10FRESH練馬店" />
+  <meta property="og:title" content="10FRESH練馬店 — ヘッドスパ専門店" />
+  <meta property="og:description" content="極上の寝落ち体験を。練馬のヘッドスパ専門店、一席だけのプライベート空間。" />
+  <meta property="og:url" content="https://10fresh.github.io/nerima-home-page/" />
+  <meta property="og:image" content="https://10fresh.github.io/nerima-home-page/assets/og.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+
+  <!-- JSが動く環境でだけ演出を有効にする -->
+  <script>document.documentElement.classList.add('js', 'is-dark');</script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <!-- フォントを非同期読み込み（表示ブロックを防ぐ） -->
   <link rel="preload" as="style"
-    href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500&family=Noto+Sans+JP:wght@300;400&display=swap" />
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Shippori+Mincho:wght@400;500&family=Zen+Kaku+Gothic+New:wght@400;500&display=swap" />
   <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500&family=Noto+Sans+JP:wght@300;400&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Shippori+Mincho:wght@400;500&family=Zen+Kaku+Gothic+New:wght@400;500&display=swap"
     media="print" onload="this.media='all'" />
   <noscript>
     <link rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500&family=Noto+Sans+JP:wght@300;400&display=swap" />
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Shippori+Mincho:wght@400;500&family=Zen+Kaku+Gothic+New:wght@400;500&display=swap" />
   </noscript>
+  <link rel="preload" as="image" href="assets/hero-poster.webp" />
   <link rel="stylesheet" href="style.css" />
+
+  <!-- 検索エンジン向けの店舗情報 -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "DaySpa",
+    "name": "ヘッドスパ専門店 10FRESH 練馬店",
+    "url": "https://10fresh.github.io/nerima-home-page/",
+    "image": "https://10fresh.github.io/nerima-home-page/assets/og.jpg",
+    "telephone": "+81-3-6914-9189",
+    "priceRange": "¥7,700〜",
+    "address": {
+      "@type": "PostalAddress",
+      "postalCode": "176-0002",
+      "addressRegion": "東京都",
+      "addressLocality": "練馬区",
+      "streetAddress": "桜台4-5-7 エルム桜台1F 105",
+      "addressCountry": "JP"
+    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+        "opens": "12:00",
+        "closes": "21:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": "Sunday",
+        "opens": "10:00",
+        "closes": "19:00"
+      }
+    ],
+    "sameAs": ["https://beauty.hotpepper.jp/kr/slnH000474125/"]
+  }
+  </script>
 </head>
 
 <body>
+  <a class="skip-link" href="#concept">本文へスキップ</a>
 
   <!-- ===== NAVIGATION ===== -->
   <header class="site-header">
     <div class="header-inner">
-      <a href="#" class="logo">
+      <a href="#top" class="logo" aria-label="10FRESH練馬店 トップへ">
         <span class="logo-main">10FRESH</span>
         <span class="logo-sub">練馬店</span>
       </a>
-      <nav class="site-nav">
-        <a href="#concept">コンセプト</a>
-        <a href="#salon">サロン紹介</a>
-        <a href="#menu">メニュー</a>
-        <a href="#voice">お客様の声</a>
+      <nav class="site-nav" id="site-nav" aria-label="メインメニュー">
+        <ul class="nav-list">
+          <li><a href="#concept"><span class="nav-en">Concept</span><span class="nav-jp">コンセプト</span></a></li>
+          <li><a href="#salon"><span class="nav-en">Salon</span><span class="nav-jp">サロン紹介</span></a></li>
+          <li><a href="#therapist"><span class="nav-en">Therapist</span><span class="nav-jp">施術者紹介</span></a></li>
+          <li><a href="#menu"><span class="nav-en">Menu</span><span class="nav-jp">メニュー</span></a></li>
+          <li><a href="#voice"><span class="nav-en">Voice</span><span class="nav-jp">お客様の声</span></a></li>
+          <li class="nav-access"><a href="#access"><span class="nav-en">Access</span><span class="nav-jp">アクセス</span></a></li>
+        </ul>
         <a href="#reserve" class="nav-reserve">ご予約</a>
       </nav>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="メニューを開く">
+        <span></span><span></span>
+      </button>
     </div>
   </header>
 
-  <!-- ===== HERO ===== -->
-  <section class="hero" id="top">
-    <div class="hero-bg">
-      <video class="hero-video" src="headspa%202.mp4" autoplay loop muted playsinline></video>
-      <div class="hero-overlay"></div>
-    </div>
-    <div class="hero-content">
-      <p class="hero-sub">Head Spa &nbsp;/&nbsp; Nerima, Tokyo</p>
-      <h1 class="hero-catch">極上の寝落ち体験を</h1>
-      <p class="hero-desc">頭皮から、ほどけていく。</p>
-      <a href="#reserve" class="btn-primary">ご予約はこちら</a>
-    </div>
-    <div class="scroll-indicator">
-      <span></span>
-      <p>scroll</p>
-    </div>
-  </section>
+  <main>
 
-  <!-- ===== CONCEPT ===== -->
-  <section class="section concept" id="concept">
-    <div class="section-inner">
-      <div class="section-label">
-        <span class="label-en">Concept</span>
-        <span class="label-jp">コンセプト</span>
+    <!-- ===== HERO ===== -->
+    <section class="hero" id="top" data-tone="dark">
+      <div class="hero-media">
+        <video class="hero-video" src="assets/hero.mp4" poster="assets/hero-poster.webp" autoplay loop muted playsinline
+          preload="auto" aria-hidden="true" tabindex="-1"></video>
       </div>
-      <div class="concept-body">
-        <div class="concept-text">
-          <h2 class="section-title">
-            何もしなくていい、<br>ここだけの時間。
-          </h2>
-          <p>
-            毎日、本当によく頑張っていますよね。<br>
-            仕事、家事、育児——気がつけば、自分のことは後回し。
-          </p>
-          <p>
-            10FRESH練馬店は、そんなあなたにひたすら向き合うための場所です。<br>
-            プライベートな空間で、施術師がじっくりと頭皮をほぐしていくと、<br>
-            気がついたら眠っていた——というお客さまがほとんど。
-          </p>
-          <p>
-            「寝落ちした」って、最高の褒め言葉だと思っています。
-          </p>
-          <div class="concept-detail">
-            <div class="detail-item">
-              <span class="detail-num">01</span>
-              <p>プライベート空間で、完全にリラックス</p>
+      <div class="hero-shade"></div>
+
+      <div class="hero-inner">
+        <h1 class="hero-title" aria-label="極上の寝落ち体験を">
+          <span class="hero-line" data-split>極上の</span>
+          <span class="hero-line" data-split>寝落ち体験を</span>
+        </h1>
+
+        <div class="hero-foot">
+          <p class="hero-sub">Head Spa <i>/</i> Nerima, Tokyo</p>
+          <p class="hero-desc">頭皮から、ほどけていく。</p>
+          <a href="#reserve" class="btn btn-light">
+            <span>ご予約はこちら</span>
+            <svg class="btn-arrow" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"
+              stroke-width="1.4" aria-hidden="true">
+              <path d="M4 12h16M14 6l6 6-6 6" />
+            </svg>
+          </a>
+        </div>
+
+        <ul class="hero-meta">
+          <li>練馬駅 徒歩3分</li>
+          <li>一席だけの貸切空間</li>
+          <li>ヘッドスパ専門店</li>
+        </ul>
+      </div>
+
+      <div class="scroll-indicator" aria-hidden="true">
+        <p>scroll</p>
+        <span></span>
+      </div>
+    </section>
+
+    <!-- ===== CONCEPT ===== -->
+    <section class="section concept" id="concept" data-tone="light">
+      <div class="section-inner">
+        <div class="section-label" data-reveal>
+          <span class="label-num">01</span>
+          <span class="label-en">Concept</span>
+          <span class="label-jp">コンセプト</span>
+        </div>
+        <div class="concept-body">
+          <figure class="concept-image" data-reveal="image">
+            <div class="arch">
+              <img src="assets/concept.webp" width="900" height="1618" alt="泡で頭皮をやさしく洗い上げるヘッドスパの様子" loading="lazy"
+                decoding="async">
             </div>
-            <div class="detail-item">
-              <span class="detail-num">02</span>
-              <p>高品質オーガニックオイル使用</p>
-            </div>
-            <div class="detail-item">
-              <span class="detail-num">03</span>
-              <p>ヘッドスパ専門の技術に特化</p>
-            </div>
+          </figure>
+          <div class="concept-text">
+            <h2 class="section-title" data-reveal>
+              何もしなくていい、<br>ここだけの時間。
+            </h2>
+            <p data-reveal>
+              毎日、本当によく頑張っていますよね。<br>
+              仕事、家事、育児——気がつけば、自分のことは後回し。
+            </p>
+            <p data-reveal>
+              10FRESH練馬店は、そんなあなたにひたすら向き合うための場所です。
+              プライベートな空間で、施術師がじっくりと頭皮をほぐしていくと、
+              気がついたら眠っていた——というお客さまがほとんど。
+            </p>
           </div>
         </div>
-        <div class="concept-image">
-          <div class="concept-img-box">
-            <img class="concept-img-actual" src="IMG_7760.PNG" alt="ヘッドスパの様子">
-            <div class="concept-img-overlay"></div>
-          </div>
-          <div class="concept-img-accent"></div>
-        </div>
+
+        <ul class="concept-detail">
+          <li class="detail-item" data-reveal>
+            <span class="detail-num">01</span>
+            <p>プライベート空間で、<br>完全にリラックス</p>
+          </li>
+          <li class="detail-item" data-reveal>
+            <span class="detail-num">02</span>
+            <p>高品質オーガニック<br>オイル使用</p>
+          </li>
+          <li class="detail-item" data-reveal>
+            <span class="detail-num">03</span>
+            <p>ヘッドスパ専門の<br>技術に特化</p>
+          </li>
+        </ul>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ===== SALON ===== -->
-  <section class="section salon" id="salon">
-    <div class="section-inner">
-      <div class="section-label">
-        <span class="label-en">Salon</span>
-        <span class="label-jp">サロン紹介</span>
-      </div>
-      <div class="salon-body">
-        <div class="salon-video-wrapper">
-          <video class="salon-video" src="shopIMG.MP4" autoplay loop muted playsinline></video>
-          <div class="salon-video-overlay"></div>
-        </div>
-        <div class="salon-text">
-          <h2 class="section-title">
-            日常を離れた、<br>特別なプライベート空間。
-          </h2>
-          <p>
-            落ち着いた上質な空間で、心ゆくまでリラックスしていただけます。<br>
-            周りの目を気にすることのない、あなただけの癒しの時間をお過ごしください。
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== THERAPIST ===== -->
-  <section class="section therapist" id="therapist">
-    <div class="section-inner">
-      <div class="section-label">
-        <span class="label-en">Therapist</span>
-        <span class="label-jp">施術者紹介</span>
-      </div>
-      <div class="therapist-body">
-        <div class="therapist-image">
-          <div class="therapist-img-box">
-            <img class="therapist-img-actual" src="IMG_8495.jpg" alt="代表セラピスト ハシモト">
-          </div>
-          <div class="therapist-name-plate">
-            <p class="therapist-role">代表セラピスト</p>
-            <p class="therapist-name">ハシモト</p>
-          </div>
-        </div>
-        <div class="therapist-text">
-          <p class="therapist-intro">
-            少しでも皆様の体が楽になるように、<br>
-            お一人おひとりに合わせた適切な<br>
-            アドバイスを心がけています。<br>
-            どんな些細なことでも、<br>
-            お気軽にご相談ください。
-          </p>
-          <div class="therapist-specialty">
-            <p class="specialty-label">得意なアプローチ</p>
-            <ul class="specialty-list">
-              <li>睡眠の質を改善したい方</li>
-              <li>長年の頭痛にお悩みの方</li>
-              <li>慢性的な眼精疲労を感じている方</li>
-            </ul>
-          </div>
-          <p class="therapist-message">
-            ソフトなタッチで心地よく頭の芯まで<br>
-            じんわりほぐし、気づいたら寝ていた…<br>
-            そんな<em>"癒し"</em>のヘッドスパをお届けいたします。
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== MENU ===== -->
-  <section class="section menu" id="menu">
-    <div class="section-inner">
-      <div class="section-label">
-        <span class="label-en">Menu</span>
-        <span class="label-jp">メニュー／料金</span>
-      </div>
-      <h2 class="section-title center">からだの声に、耳を傾けて。<br>あなたに合ったコースを。</h2>
-      <p class="section-lead center">迷ったらお気軽にご相談ください。<br>カウンセリングで一緒に選びます。</p>
-
-      <div class="menu-grid">
-
-        <div class="menu-card">
-          <div class="menu-card-top">
-            <span class="menu-tag">気軽に体験</span>
-            <p class="menu-time">60分</p>
-          </div>
-          <h3 class="menu-name">ドライヘッドスパ</h3>
-          <p class="menu-desc">
-            頭のコリをじっくりほぐし、眼精疲労を解消します。オイル不使用なのでお仕事帰りにも気軽に受けられるコースです。
-          </p>
-          <div class="menu-footer">
-            <p class="menu-price">¥7,700 <span>（税込）</span></p>
-          </div>
-        </div>
-
-        <div class="menu-card featured">
-          <div class="menu-card-top">
-            <span class="menu-tag">おすすめ</span>
-            <p class="menu-time">60分</p>
-          </div>
-          <h3 class="menu-name">トータルケア<br class="sp-br">オイル式頭健ヘッドスパ</h3>
-          <p class="menu-desc">
-            高品質なオーガニックオイルを使用し、頭皮から髪まで潤いを与えます。リラックス効果抜群で、施術後のしっとり感もご好評いただいています。
-          </p>
-          <div class="menu-footer">
-            <p class="menu-price">¥8,800 <span>（税込）</span></p>
-          </div>
-        </div>
-
-        <div class="menu-card">
-          <div class="menu-card-top">
-            <span class="menu-tag">特別な日の前に</span>
-            <p class="menu-time">65分</p>
-          </div>
-          <h3 class="menu-name">小顔リフトアップ<br class="sp-br">ヘッドスパ</h3>
-          <p class="menu-desc">
-            頭の筋肉を引き上げることで、お顔のリフトアップ効果が期待できます。大切なイベントの前日や、自分へのご褒美にもおすすめです。
-          </p>
-          <div class="menu-footer">
-            <p class="menu-price">¥9,900 <span>（税込）</span></p>
-          </div>
-        </div>
-
-      </div>
-
-      <p class="menu-note">＊ その他のメニューは<a href="https://beauty.hotpepper.jp/kr/slnH000474125/" target="_blank"
-          rel="noopener" class="menu-note-link">ホットペッパー</a>をご覧いただくか、ご来店の際にお気軽にお尋ねください。</p>
-    </div>
-
-  </section>
-
-  <!-- ===== VOICE ===== -->
-  <section class="section voice" id="voice">
-    <div class="section-inner">
-      <div class="section-label">
-        <span class="label-en">Voice</span>
-        <span class="label-jp">お客様の声</span>
-      </div>
-      <h2 class="section-title center">みなさんから、<br>うれしい言葉をいただいています。</h2>
-
-      <div class="voice-grid">
-
-        <div class="voice-card">
-          <div class="voice-stars">★★★★★</div>
-          <p class="voice-text">
-            「丁寧にマッサージして頂き、とても気持ちの良い時間でした！帰り道、雨が降っていたにもかかわらず、ぼやけていた視界がハッキリと見えたことには非常に驚きました。それだけ効果があったことを実感しました！」
-          </p>
-          <p class="voice-author">40代女性 / 眼精疲労にお悩みだった方</p>
-        </div>
-
-        <div class="voice-card">
-          <div class="voice-stars">★★★★★</div>
-          <p class="voice-text">
-            「丁寧に施術して頂きました。大変気持ちが良く、リラックス出来ました。また、お伺いしますので、宜しくお願いいたします。」
-          </p>
-          <p class="voice-author">50代男性 / リラックス目的でご来店</p>
-        </div>
-
-        <div class="voice-card voice-card--featured">
-          <div class="voice-stars">★★★★★</div>
-          <p class="voice-text">
-            「仕事の疲れと寝つきの悪さで受けてみたのですが、カウンセリングで頭皮の状態をしっかり見てくれたのが好印象でした。力加減もちょうどよく、頭の芯までじんわりほぐされていく感じがたまりません。終わったあとは目の疲れや首のコリまでスーッと和らいで、久しぶりにぐっすり眠れました。定期的に通いたい、そんなサロンです！」
-          </p>
-          <p class="voice-author">30代女性 / リモートワークの主婦</p>
-        </div>
-
-        <div class="voice-card">
-          <div class="voice-stars">★★★★★</div>
-          <p class="voice-text">
-            「施術中に気づいたら寝ていました。あんなに深く眠れたのは久しぶりで、終わったあとも頭がすっきりしていて感動。毎月来たいです」
-          </p>
-          <p class="voice-author">30代女性 / 会社員</p>
-        </div>
-
-        <div class="voice-card">
-          <div class="voice-stars">★★★★★</div>
-          <p class="voice-text">
-            「リフレッシュしたくて伺いました。<br>施術の力加減が最高で、気持ちよかったです。<br>終わった後はスッキリして、満足できました。<br>また利用したいと思います。」
-          </p>
-          <p class="voice-author">30代女性 / 会社員</p>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== RESERVE ===== -->
-  <section class="section reserve" id="reserve">
-    <div class="section-inner reserve-inner">
-      <div class="reserve-deco">10FRESH</div>
-      <h2 class="reserve-title">ご予約・お問い合わせ</h2>
-      <p class="reserve-lead">
-        お電話・LINEのどちらでもご予約いただけます。<br>
-        「初めてなんだけど…」という方も、お気軽にどうぞ。
+    <!-- ===== STATEMENT ===== -->
+    <section class="statement" data-tone="dark" aria-label="わたしたちの想い">
+      <div class="statement-glow" aria-hidden="true"></div>
+      <p class="statement-text" aria-label="「寝落ちした」って、最高の褒め言葉だと思っています。">
+        <span class="statement-line" data-split>「寝落ちした」って、</span>
+        <span class="statement-line" data-split>最高の褒め言葉だと</span>
+        <span class="statement-line" data-split>思っています。</span>
       </p>
-      <div class="reserve-actions">
-        <a href="tel:0369149189" class="btn-primary" id="btn-tel">
-          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
-            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path
-              d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.61 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.06 6.06l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z">
-            </path>
-          </svg>
-          電話で予約
-        </a>
-        <a href="https://lin.ee/6IjQbNQ" class="btn-line" target="_blank" rel="noopener">
-          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-            <path
-              d="M19.952 10.81c0-4.444-4.456-8.058-9.928-8.058S.096 6.366.096 10.81c0 3.984 3.534 7.32 8.304 7.95.323.07.763.213.874.49.1.25.065.643.032.896l-.142.85c-.043.25-.198.976.855.532 1.052-.444 5.676-3.342 7.746-5.722 1.428-1.566 2.187-3.56 2.187-5.996z" />
-          </svg>
-          LINEで予約
-        </a>
-        <a href="https://beauty.hotpepper.jp/kr/slnH000474125/" class="btn-hotpepper" target="_blank" rel="noopener">
-          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
-            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-            <line x1="16" y1="2" x2="16" y2="6"></line>
-            <line x1="8" y1="2" x2="8" y2="6"></line>
-            <line x1="3" y1="10" x2="21" y2="10"></line>
-          </svg>
-          HOT PEPPER Beauty
-        </a>
-      </div>
-      <div class="reserve-info">
-        <div class="info-item">
-          <p class="info-label">営業時間</p>
-          <p class="info-value">平日12:00 — 21:00（最終受付 20:00）</p>
-          <p class="info-value">日曜日10:00 — 19:00（最終受付 18:00）</p>
-        </div>
-        <div class="info-divider"></div>
-        <div class="info-item">
-          <p class="info-label">定休日</p>
-          <p class="info-value">不定休</p>
-        </div>
-        <div class="info-divider"></div>
-        <div class="info-item">
-          <p class="info-label">アクセス</p>
-          <p class="info-value">東京都練馬区桜台4-5-7-1Fエルム桜台105<br>西武池袋線 練馬駅 徒歩3分</p>
-        </div>
-      </div>
+      <p class="statement-sign">10FRESH Nerima</p>
+    </section>
 
-      <!-- Google Map -->
-      <div class="reserve-map">
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2873.4353474798895!2d139.65584746758725!3d35.73890969929632!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6018ed157194126f%3A0x3a78e2df97a774b!2z44OY44OD44OJ44K544OR5bCC6ZaA5bqXIDEwRlJFU0go44OG44Oz44OV44Os44OD44K344OlKee3tOmmrOW6lw!5e0!3m2!1sja!2sjp!4v1772709647982!5m2!1sja!2sjp"
-          width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <!-- ===== SALON ===== -->
+    <section class="section salon" id="salon" data-tone="light">
+      <div class="section-inner">
+        <div class="section-label" data-reveal>
+          <span class="label-num">02</span>
+          <span class="label-en">Salon</span>
+          <span class="label-jp">サロン紹介</span>
+        </div>
+        <div class="salon-body">
+          <div class="salon-text">
+            <h2 class="section-title" data-reveal>
+              日常を離れた、<br>特別なプライベート空間。
+            </h2>
+            <p data-reveal>
+              落ち着いた上質な空間で、心ゆくまでリラックスしていただけます。
+              周りの目を気にすることのない、あなただけの癒しの時間をお過ごしください。
+            </p>
+            <dl class="salon-spec" data-reveal>
+              <div>
+                <dt>Seat</dt>
+                <dd>一席のみ・おひとりで貸切</dd>
+              </div>
+              <div>
+                <dt>Room</dt>
+                <dd>個室あり</dd>
+              </div>
+              <div>
+                <dt>Certified</dt>
+                <dd>頭健ヘッドスパ協会 認定サロン</dd>
+              </div>
+            </dl>
+          </div>
+          <figure class="salon-video-wrapper" data-reveal="image">
+            <video class="salon-video" data-autoplay src="assets/salon.mp4" poster="assets/salon-poster.webp" loop muted
+              playsinline preload="none" aria-label="10FRESH練馬店の店内と外観"></video>
+          </figure>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
+
+    <!-- ===== THERAPIST ===== -->
+    <section class="section therapist" id="therapist" data-tone="light">
+      <div class="section-inner">
+        <div class="section-label" data-reveal>
+          <span class="label-num">03</span>
+          <span class="label-en">Therapist</span>
+          <span class="label-jp">施術者紹介</span>
+        </div>
+        <div class="therapist-body">
+          <figure class="therapist-image" data-reveal="image">
+            <div class="arch">
+              <img src="assets/therapist.webp" width="989" height="1000" alt="代表セラピスト ハシモト" loading="lazy"
+                decoding="async">
+            </div>
+            <figcaption class="therapist-name-plate">
+              <span class="therapist-role">代表セラピスト</span>
+              <span class="therapist-name">ハシモト</span>
+            </figcaption>
+          </figure>
+          <div class="therapist-text">
+            <p class="therapist-message" data-reveal>
+              ソフトなタッチで心地よく頭の芯まで<br>
+              じんわりほぐし、気づいたら寝ていた…<br>
+              そんな<em>“癒し”</em>のヘッドスパをお届けいたします。
+            </p>
+            <p class="therapist-intro" data-reveal>
+              少しでも皆様の体が楽になるように、お一人おひとりに合わせた適切なアドバイスを心がけています。
+              どんな些細なことでも、お気軽にご相談ください。
+            </p>
+            <div class="therapist-specialty" data-reveal>
+              <p class="specialty-label">得意なアプローチ</p>
+              <ul class="specialty-list">
+                <li>睡眠の質を改善したい方</li>
+                <li>長年の頭痛にお悩みの方</li>
+                <li>慢性的な眼精疲労を感じている方</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== MENU ===== -->
+    <section class="section menu" id="menu" data-tone="light">
+      <div class="section-inner">
+        <div class="menu-head">
+          <div class="section-label" data-reveal>
+            <span class="label-num">04</span>
+            <span class="label-en">Menu</span>
+            <span class="label-jp">メニュー／料金</span>
+          </div>
+          <div class="menu-head-text">
+            <h2 class="section-title" data-reveal>からだの声に、耳を傾けて。<br>あなたに合ったコースを。</h2>
+            <p class="section-lead" data-reveal>迷ったらお気軽にご相談ください。<br>カウンセリングで一緒に選びます。</p>
+          </div>
+        </div>
+
+        <ol class="menu-list">
+
+          <li class="menu-item" data-reveal>
+            <span class="menu-no">01</span>
+            <div class="menu-title">
+              <span class="menu-tag">気軽に体験</span>
+              <h3 class="menu-name">ドライヘッドスパ</h3>
+            </div>
+            <p class="menu-desc">
+              頭のコリをじっくりほぐし、眼精疲労を解消します。オイル不使用なのでお仕事帰りにも気軽に受けられるコースです。
+            </p>
+            <p class="menu-meta">
+              <span class="menu-time">60<small>分</small></span>
+              <span class="menu-price">¥7,700<small>税込</small></span>
+            </p>
+          </li>
+
+          <li class="menu-item featured" data-reveal>
+            <span class="menu-no">02</span>
+            <div class="menu-title">
+              <span class="menu-tag">おすすめ</span>
+              <h3 class="menu-name">トータルケア<br>オイル式頭健ヘッドスパ</h3>
+            </div>
+            <p class="menu-desc">
+              高品質なオーガニックオイルを使用し、頭皮から髪まで潤いを与えます。リラックス効果抜群で、施術後のしっとり感もご好評いただいています。
+            </p>
+            <p class="menu-meta">
+              <span class="menu-time">60<small>分</small></span>
+              <span class="menu-price">¥8,800<small>税込</small></span>
+            </p>
+          </li>
+
+          <li class="menu-item" data-reveal>
+            <span class="menu-no">03</span>
+            <div class="menu-title">
+              <span class="menu-tag">特別な日の前に</span>
+              <h3 class="menu-name">小顔リフトアップ<br>ヘッドスパ</h3>
+            </div>
+            <p class="menu-desc">
+              頭の筋肉を引き上げることで、お顔のリフトアップ効果が期待できます。大切なイベントの前日や、自分へのご褒美にもおすすめです。
+            </p>
+            <p class="menu-meta">
+              <span class="menu-time">65<small>分</small></span>
+              <span class="menu-price">¥9,900<small>税込</small></span>
+            </p>
+          </li>
+
+        </ol>
+
+        <p class="menu-note">＊ その他のメニューは<a href="https://beauty.hotpepper.jp/kr/slnH000474125/" target="_blank"
+            rel="noopener" class="menu-note-link">ホットペッパー</a>をご覧いただくか、ご来店の際にお気軽にお尋ねください。</p>
+      </div>
+    </section>
+
+    <!-- ===== FLOW ===== -->
+    <section class="section flow" id="flow" data-tone="light">
+      <div class="section-inner">
+        <div class="section-label" data-reveal>
+          <span class="label-num">05</span>
+          <span class="label-en">Flow</span>
+          <span class="label-jp">ご来店の流れ</span>
+        </div>
+        <ol class="flow-list">
+          <li class="flow-item" data-reveal>
+            <span class="flow-num">01</span>
+            <h3 class="flow-name">ご予約</h3>
+            <p>お電話・LINE・ホットペッパービューティーから。「初めてなんだけど…」という方も、お気軽にどうぞ。</p>
+          </li>
+          <li class="flow-item" data-reveal>
+            <span class="flow-num">02</span>
+            <h3 class="flow-name">カウンセリング</h3>
+            <p>今日のお疲れやお悩みを伺い、頭皮の状態を見ながら、あなたに合ったコースを一緒に選びます。</p>
+          </li>
+          <li class="flow-item" data-reveal>
+            <span class="flow-num">03</span>
+            <h3 class="flow-name">施術</h3>
+            <p>プライベートな空間で、頭の芯までじんわりと。そのまま眠ってしまって大丈夫です。</p>
+          </li>
+          <li class="flow-item" data-reveal>
+            <span class="flow-num">04</span>
+            <h3 class="flow-name">アフターアドバイス</h3>
+            <p>お一人おひとりの状態に合わせて、日々のケアのアドバイスをお伝えします。</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ===== VOICE ===== -->
+    <section class="section voice" id="voice" data-tone="light">
+      <div class="section-inner">
+        <div class="voice-head">
+          <div>
+            <div class="section-label" data-reveal>
+              <span class="label-num">06</span>
+              <span class="label-en">Voice</span>
+              <span class="label-jp">お客様の声</span>
+            </div>
+            <h2 class="section-title" data-reveal>みなさんから、<br>うれしい言葉をいただいています。</h2>
+          </div>
+          <a class="voice-rating" href="https://beauty.hotpepper.jp/kr/slnH000474125/review/" target="_blank"
+            rel="noopener" data-reveal>
+            <span class="rating-score">4.92</span>
+            <span class="rating-body">
+              <span class="rating-stars" aria-hidden="true">★★★★★</span>
+              <span class="rating-note">ホットペッパービューティー<br>口コミ 79件・2026年10月時点</span>
+            </span>
+          </a>
+        </div>
+
+        <figure class="voice-feature" data-reveal>
+          <blockquote class="voice-text">
+            「施術中に気づいたら寝ていました。あんなに深く眠れたのは久しぶりで、終わったあとも頭がすっきりしていて感動。毎月来たいです」
+          </blockquote>
+          <figcaption class="voice-author">
+            <span class="voice-stars" aria-label="5つ星">★★★★★</span>30代女性 / 会社員
+          </figcaption>
+        </figure>
+
+        <div class="voice-grid">
+
+          <figure class="voice-card" data-reveal>
+            <div class="voice-stars" aria-label="5つ星">★★★★★</div>
+            <blockquote class="voice-text">
+              「丁寧にマッサージして頂き、とても気持ちの良い時間でした！帰り道、雨が降っていたにもかかわらず、ぼやけていた視界がハッキリと見えたことには非常に驚きました。それだけ効果があったことを実感しました！」
+            </blockquote>
+            <figcaption class="voice-author">40代女性 / 眼精疲労にお悩みだった方</figcaption>
+          </figure>
+
+          <figure class="voice-card" data-reveal>
+            <div class="voice-stars" aria-label="5つ星">★★★★★</div>
+            <blockquote class="voice-text">
+              「仕事の疲れと寝つきの悪さで受けてみたのですが、カウンセリングで頭皮の状態をしっかり見てくれたのが好印象でした。力加減もちょうどよく、頭の芯までじんわりほぐされていく感じがたまりません。終わったあとは目の疲れや首のコリまでスーッと和らいで、久しぶりにぐっすり眠れました。定期的に通いたい、そんなサロンです！」
+            </blockquote>
+            <figcaption class="voice-author">30代女性 / リモートワークの主婦</figcaption>
+          </figure>
+
+          <figure class="voice-card" data-reveal>
+            <div class="voice-stars" aria-label="5つ星">★★★★★</div>
+            <blockquote class="voice-text">
+              「丁寧に施術して頂きました。大変気持ちが良く、リラックス出来ました。また、お伺いしますので、宜しくお願いいたします。」
+            </blockquote>
+            <figcaption class="voice-author">50代男性 / リラックス目的でご来店</figcaption>
+          </figure>
+
+          <figure class="voice-card" data-reveal>
+            <div class="voice-stars" aria-label="5つ星">★★★★★</div>
+            <blockquote class="voice-text">
+              「リフレッシュしたくて伺いました。施術の力加減が最高で、気持ちよかったです。終わった後はスッキリして、満足できました。また利用したいと思います。」
+            </blockquote>
+            <figcaption class="voice-author">30代女性 / 会社員</figcaption>
+          </figure>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== RESERVE ===== -->
+    <section class="section reserve" id="reserve" data-tone="dark">
+      <div class="section-inner">
+        <div class="reserve-head">
+          <div class="section-label" data-reveal>
+            <span class="label-num">07</span>
+            <span class="label-en">Reservation</span>
+            <span class="label-jp">ご予約・お問い合わせ</span>
+          </div>
+          <div>
+            <h2 class="reserve-title" data-reveal>今夜は、ぐっすり<br class="sp-br">眠れますように。</h2>
+            <p class="reserve-lead" data-reveal>
+              お電話・LINE・ホットペッパービューティーからご予約いただけます。<br>
+              「初めてなんだけど…」という方も、お気軽にどうぞ。
+            </p>
+          </div>
+        </div>
+
+        <div class="reserve-actions">
+          <a href="tel:0369149189" class="reserve-card reserve-card--tel" id="btn-tel" data-reveal>
+            <svg class="reserve-icon" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"
+              fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"
+              aria-hidden="true">
+              <path
+                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.61 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.06 6.06l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z">
+              </path>
+            </svg>
+            <span class="reserve-card-label">電話で予約</span>
+            <span class="reserve-card-main">03-6914-9189</span>
+            <span class="reserve-card-arrow" aria-hidden="true"></span>
+          </a>
+          <a href="https://lin.ee/6IjQbNQ" class="reserve-card reserve-card--line" target="_blank" rel="noopener"
+            data-reveal>
+            <svg class="reserve-icon" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"
+              fill="currentColor" aria-hidden="true">
+              <path
+                d="M19.952 10.81c0-4.444-4.456-8.058-9.928-8.058S.096 6.366.096 10.81c0 3.984 3.534 7.32 8.304 7.95.323.07.763.213.874.49.1.25.065.643.032.896l-.142.85c-.043.25-.198.976.855.532 1.052-.444 5.676-3.342 7.746-5.722 1.428-1.566 2.187-3.56 2.187-5.996z" />
+            </svg>
+            <span class="reserve-card-label">LINEで予約</span>
+            <span class="reserve-card-main">LINE</span>
+            <span class="reserve-card-arrow" aria-hidden="true"></span>
+          </a>
+          <a href="https://beauty.hotpepper.jp/kr/slnH000474125/" class="reserve-card reserve-card--hpb" target="_blank"
+            rel="noopener" data-reveal>
+            <svg class="reserve-icon" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"
+              fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"
+              aria-hidden="true">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="16" y1="2" x2="16" y2="6"></line>
+              <line x1="8" y1="2" x2="8" y2="6"></line>
+              <line x1="3" y1="10" x2="21" y2="10"></line>
+            </svg>
+            <span class="reserve-card-label">ネットで予約</span>
+            <span class="reserve-card-main">HOT PEPPER Beauty</span>
+            <span class="reserve-card-arrow" aria-hidden="true"></span>
+          </a>
+        </div>
+
+        <div class="access" id="access">
+          <dl class="reserve-info" data-reveal>
+            <div class="info-item">
+              <dt class="info-label">営業時間</dt>
+              <dd class="info-value">
+                <span class="info-row"><span>平日・土曜</span><span>12:00 — 21:00<small>最終受付 20:00</small></span></span>
+                <span class="info-row"><span>日曜日</span><span>10:00 — 19:00<small>最終受付 18:00</small></span></span>
+              </dd>
+            </div>
+            <div class="info-item">
+              <dt class="info-label">定休日</dt>
+              <dd class="info-value">不定休</dd>
+            </div>
+            <div class="info-item">
+              <dt class="info-label">アクセス</dt>
+              <dd class="info-value">
+                東京都練馬区桜台4-5-7-1F<br>エルム桜台105<br>
+                西武池袋線 練馬駅 徒歩3分<br>
+                <a class="info-link" href="https://www.google.com/maps/search/?api=1&query=%E3%83%98%E3%83%83%E3%83%89%E3%82%B9%E3%83%91%E5%B0%82%E9%96%80%E5%BA%97+10FRESH+%E7%B7%B4%E9%A6%AC%E5%BA%97"
+                  target="_blank" rel="noopener">Google マップで開く</a>
+              </dd>
+            </div>
+          </dl>
+
+          <!-- Google Map -->
+          <div class="reserve-map" data-reveal="image">
+            <iframe title="10FRESH練馬店の地図"
+              src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2873.4353474798895!2d139.65584746758725!3d35.73890969929632!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6018ed157194126f%3A0x3a78e2df97a774b!2z44OY44OD44OJ44K544OR5bCC6ZaA5bqXIDEwRlJFU0go44OG44Oz44OV44Os44OD44K344OlKee3tOmmrOW6lw!5e0!3m2!1sja!2sjp!4v1772709647982!5m2!1sja!2sjp"
+              width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
 
   <!-- ===== FOOTER ===== -->
-  <footer class="site-footer">
+  <footer class="site-footer" data-tone="dark">
     <div class="footer-inner">
-      <div class="footer-logo">
-        <span class="logo-main">10FRESH</span>
-        <span class="logo-sub">練馬店</span>
+      <p class="footer-word" aria-hidden="true">10FRESH</p>
+      <div class="footer-row">
+        <div class="footer-logo">
+          <span class="logo-main">10FRESH</span>
+          <span class="logo-sub">練馬店</span>
+        </div>
+        <p class="footer-address">東京都練馬区桜台4-5-7-1Fエルム桜台105</p>
+        <p class="footer-copy">© <span id="year">2026</span> 10FRESH練馬店. All rights reserved.</p>
       </div>
-      <p class="footer-address">東京都練馬区桜台4-5-7-1Fエルム桜台105</p>
-      <p class="footer-copy">© 2025 10FRESH練馬店. All rights reserved.</p>
     </div>
   </footer>
 
-  <script src="main.js"></script>
+  <!-- ===== スマホ用の固定予約バー ===== -->
+  <div class="cta-bar" aria-label="ご予約">
+    <a href="tel:0369149189">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path
+          d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.61 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.06 6.06l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z">
+        </path>
+      </svg>
+      電話
+    </a>
+    <a href="https://lin.ee/6IjQbNQ" target="_blank" rel="noopener">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+        aria-hidden="true">
+        <path
+          d="M19.952 10.81c0-4.444-4.456-8.058-9.928-8.058S.096 6.366.096 10.81c0 3.984 3.534 7.32 8.304 7.95.323.07.763.213.874.49.1.25.065.643.032.896l-.142.85c-.043.25-.198.976.855.532 1.052-.444 5.676-3.342 7.746-5.722 1.428-1.566 2.187-3.56 2.187-5.996z" />
+      </svg>
+      LINE
+    </a>
+    <a href="https://beauty.hotpepper.jp/kr/slnH000474125/" target="_blank" rel="noopener" class="cta-bar-main">
+      ネット予約
+    </a>
+  </div>
+
+  <script src="main.js" defer></script>
 </body>
 
 </html>
