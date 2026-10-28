@@ -114,8 +114,8 @@ html {
   /* スマホでのフォントサイズ自動拡大を防ぐ */
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
-  transition: --bg 1s var(--ease), --surface 1s var(--ease), --fg 1s var(--ease), --fg-soft 1s var(--ease),
-    --mute 1s var(--ease), --line 1s var(--ease), --accent 1s var(--ease);
+  transition: --fg 0.6s var(--ease), --fg-soft 0.6s var(--ease), --mute 0.6s var(--ease), --line 0.6s var(--ease),
+    --accent 0.6s var(--ease);
 }
 
 body {
@@ -1388,7 +1388,7 @@ html:not(.js) .site-header {
 }
 
 .reserve-card {
-  --brand: var(--amber);
+  --brand: var(--moss);
   position: relative;
   display: flex;
   flex-direction: column;
@@ -1468,13 +1468,8 @@ html:not(.js) .site-header {
 
 @media (hover: hover) {
   .reserve-card:hover {
-    color: #10140F;
-    border-color: var(--brand);
-  }
-
-  .reserve-card--hpb:hover,
-  .reserve-card--line:hover {
     color: #fff;
+    border-color: var(--brand);
   }
 
   .reserve-card:hover::before {
@@ -1559,12 +1554,6 @@ html:not(.js) .site-header {
 .reserve-map iframe {
   display: block;
   height: clamp(320px, 36vw, 460px);
-  filter: grayscale(1) contrast(0.92) brightness(0.96);
-  transition: filter 0.8s var(--ease);
-}
-
-.reserve-map:hover iframe {
-  filter: none;
 }
 
 /* ---------- FOOTER ---------- */

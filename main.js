@@ -39,13 +39,62 @@ document.addEventListener('keydown', (e) => {
 });
 
 // ---------- Scroll-linked effects ----------
-const toneSections = Array.from(document.querySelectorAll('[data-tone]'));
+const sections = Array.from(document.querySelectorAll('main section[id]'));
 const navLinks = Array.from(document.querySelectorAll('.nav-list a'));
 const statement = document.querySelector('.statement-text');
 const statementChars = statement ? Array.from(statement.querySelectorAll('.char')) : [];
 const ctaBar = document.querySelector('.cta-bar');
 const reserve = document.querySelector('#reserve');
 let ticking = false;
+
+// ---------- Tone (dark → light) ----------
+// 画面中央の位置に応じて、下の色の間をなめらかに補間する。
+// [基準要素, 基準要素の上端からのずれ(画面高さ比), 背景色, 面の色]
+const toneStops = [
+  ['#top', 0, '#0E1311', '#161D1A'],
+  ['#concept', 0, '#111816', '#1A2220'],
+  ['.statement', 0, '#151D1A', '#1E2824'],
+  ['#salon', -0.4, '#1A2420', '#232E29'],
+  ['#salon', 0.3, '#E6E1D5', '#DCD6C8'],
+  ['#menu', 0, '#EDE9DF', '#E3DED1'],
+  ['#reserve', 0, '#F2EFE7', '#E8E4DA'],
+  ['#access', 0, '#F7F5F0', '#EDEAE2'],
+].map(([sel, offset, bg, surface]) => ({ el: document.querySelector(sel), offset, bg: hexToRgb(bg), surface: hexToRgb(surface) }));
+
+function hexToRgb(hex) {
+  const n = parseInt(hex.slice(1), 16);
+  return [(n >> 16) & 255, (n >> 8) & 255, n & 255];
+}
+
+function mix(a, b, t) {
+  return a.map((v, i) => Math.round(v + (b[i] - v) * t));
+}
+
+function paintTone(y, vh) {
+  const mid = y + vh * 0.5;
+  const pos = toneStops.map((s) => s.el.getBoundingClientRect().top + y + s.offset * vh);
+  let bg = toneStops[toneStops.length - 1].bg;
+  let surface = toneStops[toneStops.length - 1].surface;
+  if (mid <= pos[0]) {
+    bg = toneStops[0].bg;
+    surface = toneStops[0].surface;
+  } else {
+    for (let i = 0; i < toneStops.length - 1; i++) {
+      if (mid < pos[i + 1]) {
+        const t = (mid - pos[i]) / Math.max(pos[i + 1] - pos[i], 1);
+        const e = t * t * (3 - 2 * t); // smoothstep
+        bg = mix(toneStops[i].bg, toneStops[i + 1].bg, e);
+        surface = mix(toneStops[i].surface, toneStops[i + 1].surface, e);
+        break;
+      }
+    }
+  }
+  root.style.setProperty('--bg', `rgb(${bg})`);
+  root.style.setProperty('--surface', `rgb(${surface})`);
+  // 背景の明るさが半分を超えたら、文字色を暗い色に切り替える
+  const lum = (0.2126 * bg[0] + 0.7152 * bg[1] + 0.0722 * bg[2]) / 255;
+  root.classList.toggle('is-dark', lum < 0.45);
+}
 
 function update() {
   ticking = false;
@@ -61,19 +110,17 @@ function update() {
     hero.style.setProperty('--p', Math.min(y / vh, 1).toFixed(3));
   }
 
-  // Tone: 画面中央にあるセクションに合わせて、昼 ⇄ 夜を切り替える
-  let tone = 'light';
+  // Tone: 夜明けのように、上から下へ一方向にだんだん明るくする
+  paintTone(y, vh);
+
   let currentId = '';
-  for (const sec of toneSections) {
+  for (const sec of sections) {
     const r = sec.getBoundingClientRect();
     if (r.top <= mid && r.bottom > mid) {
-      tone = sec.dataset.tone;
       currentId = sec.id;
       break;
     }
   }
-  if (y + vh >= document.documentElement.scrollHeight - 2) tone = 'dark';
-  root.classList.toggle('is-dark', tone === 'dark');
 
   // 現在地をナビに表示
   navLinks.forEach((a) => {
