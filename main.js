@@ -51,15 +51,25 @@ let ticking = false;
 // 画面中央の位置に応じて、下の色の間をなめらかに補間する。
 // [基準要素, 基準要素の上端からのずれ(画面高さ比), 背景色, 面の色]
 const toneStops = [
+  // 夜：暗い色から、少しずつ灰みの緑へ
   ['#top', 0, '#0E1311', '#161D1A'],
-  ['#concept', 0, '#111816', '#1A2220'],
-  ['.statement', 0, '#151D1A', '#1E2824'],
-  ['#salon', -0.4, '#1A2420', '#232E29'],
-  ['#salon', 0.3, '#E6E1D5', '#DCD6C8'],
-  ['#menu', 0, '#EDE9DF', '#E3DED1'],
-  ['#reserve', 0, '#F2EFE7', '#E8E4DA'],
+  ['#concept', 0, '#121916', '#1B2420'],
+  ['.statement', 0, '#1B2420', '#252F2A'],
+  ['#salon', -0.55, '#313A35', '#3B4540'],
+  ['#salon', -0.1, '#3C4540', '#46504A'],
+  // 夜明け：中間の灰色は一気に抜け、淡いセージ色の時間を長くとる
+  ['#salon', 0.25, '#BCBFB3', '#B0B3A7'],
+  ['#therapist', 0, '#C4C6BA', '#B7BAAE'],
+  ['#menu', 0, '#CFD0C4', '#C3C4B8'],
+  ['#flow', 0, '#D8D7CC', '#CCCBC0'],
+  ['#voice', 0, '#E1DFD4', '#D6D3C8'],
+  // 朝：地図のあたりで、いちばん明るく
+  ['#reserve', 0, '#EEEBE3', '#E4E0D6'],
   ['#access', 0, '#F7F5F0', '#EDEAE2'],
 ].map(([sel, offset, bg, surface]) => ({ el: document.querySelector(sel), offset, bg: hexToRgb(bg), surface: hexToRgb(surface) }));
+
+const FG_LIGHT = hexToRgb('#EDE9DF');
+const FG_DARK = hexToRgb('#1D2420');
 
 function hexToRgb(hex) {
   const n = parseInt(hex.slice(1), 16);
@@ -93,7 +103,12 @@ function paintTone(y, vh) {
   root.style.setProperty('--surface', `rgb(${surface})`);
   // 背景の明るさが半分を超えたら、文字色を暗い色に切り替える
   const lum = (0.2126 * bg[0] + 0.7152 * bg[1] + 0.0722 * bg[2]) / 255;
-  root.classList.toggle('is-dark', lum < 0.45);
+  const dark = lum < 0.4;
+  root.classList.toggle('is-dark', dark);
+  // 補助の文字色は背景に合わせて濃さを調整し、淡い背景でも読めるようにする
+  const fg = dark ? FG_LIGHT : FG_DARK;
+  root.style.setProperty('--fg-soft', `rgb(${mix(fg, bg, dark ? 0.25 : 0.2)})`);
+  root.style.setProperty('--mute', `rgb(${mix(fg, bg, dark ? 0.5 : 0.42)})`);
 }
 
 function update() {
